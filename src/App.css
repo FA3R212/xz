@@ -1,0 +1,68 @@
+:root {
+  font-family: "Dela Gothic One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.root_gradient-background {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: linear-gradient(
+      0deg,
+      #6e6fa6 0%,
+      #6e7da6 13%,
+      rgb(from #868db5 r g b / 84%) 26%,
+      rgb(from #9ba9c2 r g b / 69%) 33%,
+      rgb(from #9b9fc2 r g b / 0%) 60%,
+      rgb(from #9e9bc2 r g b / 0%) 100%
+   );
+   z-index: -1;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+}
+
+.main_title {
+  font-size: 35px;
+  color:blueviolet;
+}
+
+.main_name {
+  width: 270;
+padding: 3px;
+border-radius: 20px;
+border: 2px solid blueviolet;
+display: flex;
+align-items: center;
+background-color: rgb(from blueviolet r g b / 30%);
+}
+
+.main_input {
+  flex: 1;
+  background-color: transparent;
+  padding-left: 15px;
+}
+.main_button {
+  height: 100%;
+  display: block;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: white;
+  color: green;
+  padding: 5px;
+}
+.main_description {
+  font-size: 14px;
+  position: absolute;
+  bottom: 60px;
+  color: white;
+}
