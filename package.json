@@ -12,6 +12,8 @@
   "dependencies": {
     "all": "^0.0.0",
     "lucide-react": "^1.64.0",
+    "motion": "^14.8.0",
+    "qrcode.react": "^4.2.0",
     "reac": "^0.0.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",

@@ -1,17 +1,21 @@
 import { Check } from "lucide-react";
-import { GradientBackground } from "../comonents/GradientBackground";
 import { useState } from "react";
+import { freshSession, saveSession } from "../model";
+import { useNavigate } from "react-router-dom";
+import { Intro } from "../comonents/Intro";
 
 function HomePage() {
 const [name, setName] = useState("");
+const nav = useNavigate();
 
 const ruchka = () => {
     localStorage.setItem("name", name);
+    saveSession(freshSession(name));
+    nav("/game")
 };
 
     return (
-        <>
-        <GradientBackground />
+        <Intro>
        <main className="main">
         <h1 className="main_title">Poz</h1>
         <div className="main_name">
@@ -24,8 +28,7 @@ const ruchka = () => {
                 <Check />
             </button>
         </div>
-        <p className="main_description">Выбери что-то на вечер</p>
-    </main>  </>
+    </main>  </Intro>
    
     );
 }
