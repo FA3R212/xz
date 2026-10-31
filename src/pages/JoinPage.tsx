@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Intro } from "../comonents/Intro";
 import { decodeInvitation, freshSession, getName, saveSession, setName as saveName } from "../model";
+import { Input } from "../comonents/input";
 
 function JoinPage() {
     const nav = useNavigate();
@@ -19,32 +20,25 @@ function JoinPage() {
          </Intro>
       );
    }
-    return(
-        <Intro>
-         <form
-            className="join-form"
-            onSubmit={(e) => {
-               e.preventDefault();
-               if (!name.trim()) return;
+
+   function ruchka (){
+ if (!name.trim() || !invitation) return;
                const first = { name: invitation.name, likes: invitation.likes };
                saveName(name.trim());
                saveSession(freshSession(name.trim(), first));
                nav("/game");
-            }}
+   };
+
+    return(
+        <Intro>
+         <div
+            className="join-form"
          >
             <h2>{invitation.name} приглашает выбрать кино вместе!</h2>
             <p>Оцените те же 15 фильмов, и мы найдём совпадения</p>
-            <input
-               aria-label="Ваше имя"
-               maxLength={40}
-               placeholder="Ваше имя"
-               value={name}
-               onChange={(e) => setName(e.target.value)}
-            />
-            <button className="primary" disabled={!name.trim()}>
-               Присоединиться
-            </button>
-         </form>
+
+            <Input value={name} onChange={setName} onClick={ruchka}/>
+            </div>
       </Intro>
     );
 }

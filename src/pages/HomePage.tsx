@@ -1,8 +1,8 @@
-import { Check } from "lucide-react";
 import { useState } from "react";
 import { freshSession, saveSession } from "../model";
 import { useNavigate } from "react-router-dom";
 import { Intro } from "../comonents/Intro";
+import { Input } from "../comonents/input";
 
 function HomePage() {
 const [name, setName] = useState("");
@@ -18,17 +18,9 @@ const ruchka = () => {
         <Intro>
        <main className="main">
         <h1 className="main_title">Poz</h1>
-        <div className="main_name">
-            <input className="main_input" 
-            type="text" 
-            placeholder="введите имя" 
-            value={name} 
-            onChange={(e) => setName(e.target.value)} />
-            <button className="main_button" onClick={ruchka}>
-                <Check />
-            </button>
-        </div>
-    </main>  </Intro>
+        <Input value={name} onChange={setName} onClick={ruchka} />
+    </main> 
+    </Intro>
    
     );
 }
