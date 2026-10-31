@@ -77,13 +77,17 @@ button:disabled {
 .workspace {
    position: relative;
    margin: 0 auto;
-   min-height: 100dvh;
+   min-height: 100vh;
    color: #73a66e;
    overflow: hidden;
 }
 .intro__content {
    position: relative;
-   min-height: 100dvh;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
 }
 .intro footer {
    position: absolute;
@@ -119,11 +123,10 @@ button:disabled {
    background: linear-gradient(180deg, #b6b4b4 0, #f2f2f2 10%, #fff 24%);
 }
 .header {
-   height: 139px;
    display: flex;
    align-items: center;
    justify-content: space-between;
-   padding: 22px 21px 0;
+   padding: 22px 21px;
    max-width: 500px;
    margin: 0 auto;
 }
@@ -182,7 +185,7 @@ button:disabled {
 }
 .swipe-card {
    position: relative;
-   height: min(55.5dvh, 515px);
+   height: min(60vh, 515px);
    min-height: 330px;
    border-radius: 13px;
    overflow: hidden;
@@ -220,8 +223,7 @@ button:disabled {
 }
 .poster__fallback strong {
    font-size: clamp(17px, 5vw, 26px);
-   line-height: 1.6;
-   text-shadow: 0 2px 8px #334;
+
 }
 .poster__fallback small {
    font-family: system-ui, sans-serif;
@@ -283,23 +285,21 @@ button:disabled {
 }
 .card-label {
    position: absolute;
-   top: 12px;
-   left: 21px;
+   top: 10px;
+   left: 20px;
    color: #fff;
    font-size: 16px;
 }
 .card-meta {
    position: absolute;
-   bottom: 22px;
+   bottom: 15px;
    left: 20px;
    right: 20px;
    color: #fff;
-   text-shadow: 0 2px 6px #111;
 }
 .card-meta strong {
    display: block;
    font-size: 19px;
-   line-height: 1.3;
 }
 .card-meta small {
    font-family: system-ui, sans-serif;
@@ -379,10 +379,6 @@ button:disabled {
 .scan-content,
 .join-form,
 .center-block {
-   position: absolute;
-   left: 0;
-   right: 0;
-   top: 28%;
    padding: 0 35px;
    text-align: center;
    display: flex;
@@ -570,13 +566,6 @@ button:disabled {
    top: 40%;
 }
 @media (max-height: 760px) {
-   .header {
-      height: 110px;
-   }
-   .swipe-card {
-      height: 47dvh;
-      min-height: 260px;
-   }
    .vote-buttons {
       margin-top: 14px;
    }
