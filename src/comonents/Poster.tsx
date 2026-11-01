@@ -19,20 +19,21 @@ export const Poster: React.FC<PosterProps> = ({ movie, isActive = false, onClick
    return (
       <div
          onClick={() => onClick && onClick(movie.id)}
-         style={{
-            position: 'relative',
-            width: '100%',
-            aspectRatio: '1 / 1', // Идеальный квадрат для сетки 2 в ряд
-            borderRadius: '16px',
-            overflow: 'hidden',
-            cursor: onClick ? 'pointer' : 'default',
-            boxShadow: isActive
-               ? '0 0 0 4px #ff4757, 0 12px 24px rgba(255, 71, 87, 0.3)'
-               : '0 4px 12px rgba(0, 0, 0, 0.08)',
-            transform: isActive ? 'scale(0.96)' : 'scale(1)',
-            transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
-            userSelect: 'none'
-         }}
+               style={{
+        position: 'relative',
+        width: '100%',
+        height: '100%', // Постер всегда занимает всю высоту, которую ему выделил родитель
+        borderRadius: '16px',
+        overflow: 'hidden',
+        cursor: onClick ? 'pointer' : 'default',
+        boxShadow: isActive
+          ? '0 0 0 4px #ff4757, 0 12px 24px rgba(255, 71, 87, 0.3)'
+          : '0 4px 12px rgba(0, 0, 0, 0.08)',
+        transform: isActive ? 'scale(0.96)' : 'scale(1)',
+        transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+        userSelect: 'none'
+      }}
+
       >
          <img
             src={movie.poster}

@@ -34,8 +34,8 @@ function JoinPage() {
          <div
             className="join-form"
          >
-            <h2>{invitation.name} приглашает выбрать кино вместе!</h2>
-            <p>Оцените те же 15 фильмов, и мы найдём совпадения</p>
+            <h2>{invitation.name} приглашает выбрать завтрак вместе!</h2>
+            <p>Оцените те же 30 завтраков, и мы найдём совпадения</p>
 
             <Input value={name} onChange={setName} onClick={ruchka}/>
             </div>

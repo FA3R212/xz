@@ -42,6 +42,36 @@ function GamePage() {
    return (
       <main className="workspace">
          <Header />
+
+        {/* --- НАЧАЛО ПРОГРЕСС-БАРА --- */}
+              {/* --- НАЧАЛО ПРОГРЕСС-БАРА --- */}
+      {session && (
+        <div style={{ padding: '10px 20px 0 20px', width: '100%', boxSizing: 'border-box' }}>
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            marginBottom: '6px',
+            fontSize: '14px',
+            color: '#4a5d4e', 
+            fontWeight: 500
+          }}>
+            <span>Выбрано завтраков</span>
+            <span>{session.votes.length} из {session.order.length}</span>
+          </div>
+          
+          {/* Одна надежная полоса, которая красится градиентом в зависимости от прогресса */}
+          <div style={{
+            width: '100%',
+            height: '8px',
+            borderRadius: '4px',
+            background: `linear-gradient(to right, #4CAF50 ${(session.votes.length / session.order.length) * 100}%, rgba(0, 0, 0, 0.08) ${(session.votes.length / session.order.length) * 100}%)`,
+            transition: 'background 0.2s ease-out'
+          }} />
+        </div>
+      )}
+      {/* --- КОНЕЦ ПРОГРЕСС-БАРА --- */}
+
+
          <div className="swipe-area">
             {movie && (
                <Fragment key={movie.id}>
@@ -76,15 +106,16 @@ function GamePage() {
                >
                   <RotateCcw size={17} /> Отменить
                </button>
-               <button
-                  onClick={
-                     () => {
-                        nav(session.role == 1 ? "/share" : "result", { replace: true });
-                     }}
-                  disabled={session.votes.length !== session.order.length}
-               >
-                  Завершить
-               </button>
+                      <button
+          onClick={
+            () => {
+              nav(session.role === 1 ? "/share" : "/result", { replace: true })
+            }
+          }
+        >
+          Завершить
+        </button>
+
             </div>
          </div>
       </main>

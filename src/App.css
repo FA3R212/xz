@@ -12,12 +12,12 @@
    height: 100vh;
    background: linear-gradient(
       0deg,
-      #73a66e 0%,
-      #73a66e 13%,
-      rgb(from #8ab586 r g b / 84%) 26%,
-      rgb(from #9ec29b r g b / 69%) 33%,
-      rgb(from #9ec29b r g b / 0%) 60%,
-      rgb(from #9ec29b r g b / 0%) 100%
+      #391068 0%,
+      #2345a1 13%,
+      rgb(from #3144b1 r g b / 84%) 26%,
+      rgb(from #2160a8 r g b / 69%) 33%,
+      rgb(from #1c56ac r g b / 40%) 60%,
+      rgb(from #1f34a7 r g b / 20%) 100%
    );
    z-index: -1;
 }
