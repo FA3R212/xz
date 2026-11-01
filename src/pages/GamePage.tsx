@@ -6,7 +6,7 @@ import { movies, readSession, saveSession, type Session } from "../model";
 import { SwipeCard } from "../comonents/SwipeCard.tsx";
 
 function GamePage() {
-    const nav = useNavigate();
+   const nav = useNavigate();
    const [session, setSession] = useState<Session | null>(() => readSession());
    const [locked, setLocked] = useState(false);
 
@@ -44,31 +44,31 @@ function GamePage() {
          <Header />
          <div className="swipe-area">
             {movie && (
- <Fragment key={movie.id}>
-               <SwipeCard
-                  movie={movie}
-                  onChoice={update}
-                  disabled={locked}
-               />
-               <div className="vote-buttons">
-                  <button
-                     onClick={() => update(false)}
-                     className="no"
-                     aria-label="Дизлайк"
-                  >
-                     <HeartCrack size={64} />
-                  </button>
-                  <button
-                     onClick={() => update(true)}
-                     className="yes"
-                     aria-label="Лайк"
-                  >
-                     <Heart size={64} />
-                  </button>
-               </div>
-            </Fragment>
+               <Fragment key={movie.id}>
+                  <SwipeCard
+                     movie={movie}
+                     onChoice={update}
+                     disabled={locked}
+                  />
+                  <div className="vote-buttons">
+                     <button
+                        onClick={() => update(false)}
+                        className="no"
+                        aria-label="Дизлайк"
+                     >
+                        <HeartCrack size={64} />
+                     </button>
+                     <button
+                        onClick={() => update(true)}
+                        className="yes"
+                        aria-label="Лайк"
+                     >
+                        <Heart size={64} />
+                     </button>
+                  </div>
+               </Fragment>
             )}
-           
+
             <div className="bottom-actions">
                <button
                   onClick={undo}
@@ -78,8 +78,9 @@ function GamePage() {
                </button>
                <button
                   onClick={
-                     () => {nav(session.role == 1 ? "/share" : "result", {replace: true});
-                  }}
+                     () => {
+                        nav(session.role == 1 ? "/share" : "result", { replace: true });
+                     }}
                   disabled={session.votes.length !== session.order.length}
                >
                   Завершить

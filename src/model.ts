@@ -3,15 +3,17 @@ import data from "./data.json";
 export type Movie = {
    id: string;
    title: string;
-   year: number;
-   genre: string;
+   year: string;        // Изменили с number на string, так как теперь тут текст "15 мин"
+   genre: string;       // Здесь хранятся краткие ингредиенты
    poster: string;
+   description: string; // Добавили поле для рецепта, чтобы файлы не конфликтовали
 };
+
 export type Invitation = {
-    v: 1;
-    dataset: "movies-v1";
-    name: string;
-    likes: string[];
+   v: 1;
+   dataset: "movies-v1";
+   name: string;
+   likes: string[];
 };
 export type Vote = { id: string; liked: boolean };
 export type Session = {
@@ -61,7 +63,7 @@ export const saveSession = (s: Session) => {
 };
 export const readSession = (): Session | null => {
    try {
-       return JSON.parse(localStorage.getItem(KEY) || "null");
+      return JSON.parse(localStorage.getItem(KEY) || "null");
    } catch {
       return null;
    }
@@ -87,7 +89,7 @@ export const decodeInvitation = (encoded: string): Invitation | null => {
       if (encoded.length > 2048 || !/^[A-Za-z0-9_-]+$/.test(encoded)) return null;
       const base = encoded.replaceAll("-", "+").replaceAll("_", "/");
       const bytes = Uint8Array.from(atob(base), (c) => c.charCodeAt(0));
-       return JSON.parse(new TextDecoder("utf-8", {fatal: true}).decode(bytes)) as Invitation;
+      return JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes)) as Invitation;
    } catch {
       return null;
    }
