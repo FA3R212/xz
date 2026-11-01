@@ -72,7 +72,7 @@ function ResultPage () {
                <button
                   onClick={() => {
                      clearSession();
-                     nav("n");
+                     nav("/");
                   }}
                >
                   <RotateCcw size={16} /> Начать снова

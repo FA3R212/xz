@@ -1,5 +1,5 @@
 function GradientBackground() {
-    return <div className="root_gradient-background"></div>
+    return <div className="root__gradient-background"></div>
 }
 
 export {GradientBackground};
